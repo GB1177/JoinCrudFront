@@ -1,0 +1,11 @@
+<form class="form mat-elevation-z8">
+  <h1>Deletando produto</h1>
+
+  <mat-form-field class="full-width">
+    <mat-label>Produto</mat-label>
+    <input [(ngModel)]="produto.produtoNome" disabled name="produto" matInput placeholder="Produto">
+  </mat-form-field>
+
+  <button id="delete" class="mat-elevation-z8" (click)="delete()" mat-stroked-button color="accent">Deletar</button>
+  <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
+</form>

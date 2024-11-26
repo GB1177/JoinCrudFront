@@ -1,0 +1,29 @@
+.container {
+  height: 83.1%;
+}
+
+i {
+  margin-right: 1rem;
+}
+
+button {
+  margin: 1rem auto 0 1rem;
+}
+
+.sidenav {
+  background-color: #4a0756 !important;
+}
+
+.custom-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+
+  &:hover mat-icon {
+    color: #6E0B7A;
+  }
+}
+
+mat-icon {
+  transition: color 0.3s ease;
+}

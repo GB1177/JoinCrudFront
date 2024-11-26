@@ -1,0 +1,18 @@
+mat-card {
+  width: 100%;
+  background-color: #4a0756;
+  color: white;
+  border-radius: 0;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-card {
+  max-width: 100px;
+  height: auto;
+  align-self: flex-end;
+}

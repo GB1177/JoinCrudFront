@@ -1,0 +1,19 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/categoria" routerLinkActive="active-link">
+        <i class="material-icons">category</i>Categoria
+      </a>
+      <a mat-list-item routerLink="/produto" routerLinkActive="active-link">
+        <i class="material-icons">inventory_2</i>Produto
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div>
+    <button class="custom-button" type="button" (click)="drawer.toggle()">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
