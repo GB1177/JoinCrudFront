@@ -6,7 +6,6 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { Categoria } from 'src/app/models/categoria.model';
 import { CategoriaService } from 'src/app/shared/services/categoria.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-categoria-read',
@@ -30,24 +29,26 @@ export class CategoriaReadComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   public categorias: Categoria[] = [];
+  dataSource = new MatTableDataSource<Categoria>([]);
+  displayedColumns: string[] = ['nome', 'acao'];
+
+  ngOnInit(): void {
+    this.findAll();
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
-  dataSource = new MatTableDataSource<Categoria>(this.categorias);
-  displayedColumns: string[] = ['categoriaNome', 'descricao', 'acao'];
-
   public findAll(): void {
     this.service.findAll().subscribe(
       (response) => {
         this.categorias = response;
-        this.dataSource = new MatTableDataSource<Categoria>(this.categorias);
-        this.dataSource.paginator = this.paginator;
-        console.log(this.categorias);
+        this.categorias.sort((a, b) => a.nome.localeCompare(b.nome));
+        this.dataSource.data = this.categorias;
       },
       (error) => {
-        console.log('error:', error);
+        console.error('Erro ao buscar categorias:', error);
       }
     );
   }

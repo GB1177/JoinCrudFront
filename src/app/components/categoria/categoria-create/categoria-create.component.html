@@ -3,7 +3,7 @@
 
   <mat-form-field class="full-width">
     <mat-label>Categoria</mat-label>
-    <input required name="categoriaNome" minlength="3" maxlength="100" matInput placeholder="Nome da categoria" [formControl]="categoriaControl"/>
+    <input required name="nome" minlength="3" maxlength="100" matInput placeholder="Nome da categoria" [formControl]="categoriaControl"/>
   </mat-form-field>
 
   <button id="create" class="mat-elevation-z8" color="accent" mat-stroked-button (click)="create()">

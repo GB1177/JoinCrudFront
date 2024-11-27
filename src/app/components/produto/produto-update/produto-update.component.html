@@ -1,9 +1,42 @@
-<form class="form mat-elevation-z8">
+<form class="form mat-elevation-z8" [formGroup]="produtoForm" (ngSubmit)="update()">
   <h1>Atualizando produto</h1>
 
-  <mat-form-field class="full-width">
-    <mat-label>Produto</mat-label>
-    <input [(ngModel)]="produtoControl" [formControl]="produtoControl" required name="nome" minlength="3" maxlength="100" matInput placeholder="Nome do Produto">
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Nome do Produto</mat-label>
+    <input matInput formControlName="nome" required minlength="5" maxlength="100"
+      placeholder="Digite o nome do produto" />
+    <mat-error *ngIf="produtoForm.get('nome')?.invalid && produtoForm.get('nome')?.touched">
+      O nome do produto deve ter pelo menos 5 caracteres.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <input matInput formControlName="descricao" required placeholder="Digite a descrição do produto" />
+    <mat-error *ngIf="produtoForm.get('descricao')?.invalid && produtoForm.get('descricao')?.touched">
+      A descrição é obrigatória.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Valor</mat-label>
+    <input matInput formControlName="valor" required type="number" min="0" placeholder="Digite o valor do produto" />
+    <mat-error *ngIf="produtoForm.get('valor')?.invalid && produtoForm.get('valor')?.touched">
+      O valor deve ser um número maior ou igual a 0.
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="categoriaId" required>
+      <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+        {{ categoria.nome }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="produtoForm.get('categoriaId')?.invalid && produtoForm.get('categoriaId')?.touched">
+      A categoria é obrigatória.
+    </mat-error>
   </mat-form-field>
 
   <button class="mat-elevation-z8" (click)="update()" mat-stroked-button color="accent">Atualizar</button>

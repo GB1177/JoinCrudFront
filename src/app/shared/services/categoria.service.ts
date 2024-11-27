@@ -9,32 +9,32 @@ import { Injectable } from "@angular/core";
   providedIn: 'root',
 })
 export class CategoriaService {
-  baseUrl: String = environment.apiUrl;
+  baseUrl: string = environment.apiUrl;
 
-  constructor(private http: HttpClient, ) {}
+  constructor(private http: HttpClient) {}
 
   public findAll(): Observable<Categoria[]> {
-    const url = this.baseUrl + '/categoria';
+    const url = `${this.baseUrl}/categorias`;
     return this.http.get<Categoria[]>(url);
   }
 
   public findById(id: any): Observable<Categoria> {
-    const url = `${this.baseUrl}/categoria/${id}`;
+    const url = `${this.baseUrl}/categorias/${id}`;
     return this.http.get<Categoria>(url);
   }
 
-  public create(categoria: Categoria): Observable<Categoria> {
-    const url = this.baseUrl + '/categoria';
-    return this.http.post<Categoria>(url, categoria);
+  public create(categorias: Categoria): Observable<Categoria> {
+    const url = this.baseUrl + '/categorias';
+    return this.http.post<Categoria>(url, categorias);
   }
 
-  public update(categoria: Categoria): Observable<Categoria> {
-    const url = `${this.baseUrl}/categoria/${categoria.id}`;
-    return this.http.put<Categoria>(url, categoria);
+  public update(categorias: Categoria): Observable<Categoria> {
+    const url = `${this.baseUrl}/categorias/${categorias.id}`;
+    return this.http.put<Categoria>(url, categorias);
   }
 
   public delete(id: any): Observable<void> {
-    const url = `${this.baseUrl}/categoria/${id}`;
+    const url = `${this.baseUrl}/categorias/${id}`;
     return this.http.delete<void>(url);
   }
 }

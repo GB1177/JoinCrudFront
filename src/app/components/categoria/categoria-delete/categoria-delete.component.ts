@@ -27,7 +27,7 @@ export class CategoriaDeleteComponent {
 
   categoria: Categoria = {
     id: '',
-    categoriaNome: '',
+    nome: '',
   };
 
   constructor(

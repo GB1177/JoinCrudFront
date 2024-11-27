@@ -22,5 +22,13 @@ button{
 }
 
 #create {
-    color: rgb(14, 167, 146);
+    color: #0ea792;
+}
+
+.success-snack {
+  background-color: #0ea792 !important;
+}
+
+.error-snack {
+  background-color: #ff0000 !important;
 }

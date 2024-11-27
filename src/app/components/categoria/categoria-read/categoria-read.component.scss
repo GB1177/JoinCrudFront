@@ -1,7 +1,10 @@
-mat-paginator{
+mat-paginator {
   background-color: #6e0b7a;
 }
-th{
+th {
+  text-align: center;
+}
+td {
   text-align: center;
 }
 .create {
@@ -30,21 +33,20 @@ th{
 }
 
 .container {
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-  }
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
 
-  table{
-    width: 100%;
-    background-color: #4a0756;
-  }
+table {
+  width: 100%;
+  background-color: #4a0756;
+}
 
-  #edit {
-    color: rgb(14, 167, 146);
-  }
+#edit {
+  color: rgb(14, 167, 146);
+}
 
-
-  #delete {
-    color: rgb(218, 71, 71);
-  }
+#delete {
+  color: rgb(218, 71, 71);
+}

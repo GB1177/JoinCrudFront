@@ -1,6 +1,10 @@
-export class Produto {
-  id!: string;
-  produtoNome!: string;
-  descricao!: string;
-  valor!: string;
+export interface Produto {
+  id: string;
+  nome: string;
+  descricao: string;
+  valor: number;
+  categoria?: {
+    id: number;
+    nome: string;
+  };
 }

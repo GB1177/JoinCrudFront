@@ -7,29 +7,33 @@ import { CategoriaCreateComponent } from './components/categoria/categoria-creat
 import { CategoriaUpdateComponent } from './components/categoria/categoria-update/categoria-update.component';
 import { CategoriaDeleteComponent } from './components/categoria/categoria-delete/categoria-delete.component';
 
-
 export const routes: Routes = [
   {
     path: '',
     redirectTo: '/categoria',
     pathMatch: 'full',
   },
+
   {
     path: 'categoria',
     component: CategoriaReadComponent,
   },
+
   {
     path: 'categoria/create',
     component: CategoriaCreateComponent,
   },
+
   {
-    path: 'categoria/update',
+    path: 'categoria/update/:id',
     component: CategoriaUpdateComponent,
   },
+
   {
-    path: 'categoria/delete',
+    path: 'categoria/delete/:id',
     component: CategoriaDeleteComponent,
   },
+
   {
     path: 'produto',
     loadComponent: () =>
@@ -37,25 +41,28 @@ export const routes: Routes = [
         (m) => m.ProdutoReadComponent
       ),
   },
+
   {
     path: 'produto/create',
     loadComponent: () =>
-      import('./components/produto/produto-create/produto-create.component').then(
-        (m) => m.ProdutoCreateComponent
-      ),
+      import(
+        './components/produto/produto-create/produto-create.component'
+      ).then((m) => m.ProdutoCreateComponent),
   },
+
   {
-    path: 'produto/update',
+    path: 'produto/update/:id',
     loadComponent: () =>
-      import('./components/produto/produto-update/produto-update.component').then(
-        (m) => m.ProdutoUpdateComponent
-      ),
+      import(
+        './components/produto/produto-update/produto-update.component'
+      ).then((m) => m.ProdutoUpdateComponent),
   },
+
   {
-    path: 'produto/delete',
+    path: 'produto/delete/:id',
     loadComponent: () =>
-      import('./components/produto/produto-delete/produto-delete.component').then(
-        (m) => m.ProdutoDeleteComponent
-      ),
+      import(
+        './components/produto/produto-delete/produto-delete.component'
+      ).then((m) => m.ProdutoDeleteComponent),
   },
 ];

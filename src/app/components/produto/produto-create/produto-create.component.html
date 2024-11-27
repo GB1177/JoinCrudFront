@@ -1,16 +1,38 @@
-<form class="form mat-elevation-z8">
+<form class="form mat-elevation-z8" [formGroup]="produtoForm">
   <h1>Criar um novo Produto</h1>
 
   <mat-form-field class="full-width">
     <mat-label>Produto</mat-label>
-    <input  required name="produto" minlength="3" maxlength="40" matInput
-      placeholder="Nome do produto" [formControl]="produtoControl" />
+    <input required name="produto" minlength="3" maxlength="40" matInput placeholder="Nome do produto"
+      formControlName="nome" />
   </mat-form-field>
 
-  <button id="create" class="mat-elevation-z8"  mat-stroked-button color="accent" (click)="create()">
+  <mat-form-field class="full-width">
+    <mat-label>Descrição</mat-label>
+    <input required name="descricao" matInput placeholder="Descrição do produto" formControlName="descricao" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Valor</mat-label>
+    <input required name="valor" matInput placeholder="Valor do produto" formControlName="valor" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Categoria</mat-label>
+    <mat-select formControlName="categoria" required>
+      <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+        {{ categoria.nome }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="produtoForm.get('categoria')?.invalid">
+      Selecione uma categoria.
+    </mat-error>
+  </mat-form-field>
+
+  <button id="create" class="mat-elevation-z8" mat-stroked-button color="accent" (click)="create()">
     Criar
   </button>
-  <button class="mat-elevation-z8"  mat-stroked-button color="warn" (click)="cancel()">
+  <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="cancel()">
     Cancelar
   </button>
 </form>

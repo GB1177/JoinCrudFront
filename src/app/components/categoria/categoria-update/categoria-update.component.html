@@ -3,7 +3,8 @@
 
   <mat-form-field class="full-width">
     <mat-label>Categoria</mat-label>
-    <input [(ngModel)]="categoriaControl" [formControl]="categoriaControl" required name="nome" minlength="3" maxlength="100" matInput placeholder="Nome da Categoria">
+    <input [formControl]="categoriaControl" required name="nome" minlength="3" maxlength="100" matInput
+      placeholder="Nome da Categoria">
   </mat-form-field>
 
   <button class="mat-elevation-z8" (click)="update()" mat-stroked-button color="accent">Atualizar</button>

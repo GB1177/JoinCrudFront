@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from './app/app.routes';
 import { provideRouter } from '@angular/router';
 
-console.log('Configuração de rotas:', appConfig.providers);
 
 bootstrapApplication(AppComponent, {
   ...appConfig,

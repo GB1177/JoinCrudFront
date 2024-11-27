@@ -46,7 +46,7 @@ export class CategoriaUpdateComponent {
     if (this.categoriaControl.valid) {
       const updatedCategoria = {
         id: this.id_category,
-        categoriaNome: this.categoriaControl.value || '',
+        nome: this.categoriaControl.value || '',
       };
 
       this.service.update(updatedCategoria).subscribe(
@@ -66,7 +66,7 @@ export class CategoriaUpdateComponent {
 
   private findById(): void {
     this.service.findById(this.id_category).subscribe((resposta) => {
-      this.categoriaControl.setValue(resposta.categoriaNome || null);
+      this.categoriaControl.setValue(resposta.nome || '');
     });
   }
 }

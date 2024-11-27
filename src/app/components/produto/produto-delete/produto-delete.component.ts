@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ProdutoService } from 'src/app/shared/services/produto.service';
 import { Produto } from 'src/app/models/produto.model';
 
+
 @Component({
   selector: 'app-produto-delete',
   standalone: true,
@@ -27,9 +28,10 @@ export class ProdutoDeleteComponent {
 
   produto: Produto = {
     id: '',
-    produtoNome: '',
+    nome: '',
     descricao: '',
-    valor: '',
+    valor: 0,
+    categoria: { id: 0, nome: '' },
   };
 
   constructor(
@@ -44,9 +46,15 @@ export class ProdutoDeleteComponent {
   }
 
   public delete(): void {
-    this.service.delete(this.id_produto).subscribe((resposta) => {
-      this.router.navigate(['produto']);
-    });
+    this.service.delete(this.id_produto).subscribe(
+      (resposta) => {
+        this.router.navigate(['produto']);
+      },
+      (err) => {
+        console.error('Erro ao deletar:', err);
+        alert('Erro ao deletar o produto!');
+      }
+    );
   }
 
   public cancel(): void {
@@ -54,9 +62,14 @@ export class ProdutoDeleteComponent {
   }
 
   private findById(): void {
-    this.service.findById(this.id_produto).subscribe((resposta) => {
-      this.produto = resposta;
-    });
+    this.service.findById(this.id_produto).subscribe(
+      (resposta) => {
+        this.produto = resposta;
+      },
+      (err) => {
+        console.error('Erro ao buscar produto:', err);
+        alert('Produto não encontrado!');
+      }
+    );
   }
 }
-

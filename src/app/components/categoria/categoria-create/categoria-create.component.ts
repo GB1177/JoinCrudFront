@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -27,22 +32,36 @@ export class CategoriaCreateComponent {
 
   categoria: Categoria = {
     id: '',
-    categoriaNome: '',
+    nome: '',
   };
 
-  categoriaControl = new FormControl('', [Validators.minLength(5)]);
+  categoriaControl = new FormControl('', [Validators.minLength(3)]);
 
   public cancel(): void {
     this.router.navigate(['/categoria']);
   }
 
   public create(): void {
+    if (this.categoriaControl.invalid) {
+      return;
+    }
+
+   this.categoria.nome = this.categoriaControl.value ?? ''; 
+
     this.service.create(this.categoria).subscribe(
       (resposta) => {
-        this.router.navigate(['categoria']);
+        this.router.navigate(['/categoria']);
       },
       (err) => {
-        if (err.error.error.match('já cadastrado')) {
+        if (
+          err &&
+          err.error &&
+          err.error.error &&
+          err.error.error.match('já cadastrado')
+        ) {
+          console.error('Categoria já cadastrada');
+        } else {
+          console.error('Erro desconhecido:', err);
         }
       }
     );
