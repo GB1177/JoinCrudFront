@@ -1,27 +1,57 @@
 # CrudJoinFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) na versão 16.2.16.
 
-## Development server
+## Servidor de Desenvolvimento
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Execute `ng serve` para iniciar um servidor de desenvolvimento. Navegue até `http://localhost:4200/`. A aplicação será recarregada automaticamente sempre que você alterar qualquer um dos arquivos de origem.
 
-## Code scaffolding
+## Gerando Código
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Execute `ng generate component nome-do-componente` para gerar um novo componente. Você também pode usar `ng generate directive|pipe|service|class|guard|interface|enum|module` para criar outras partes do projeto.
 
-## Build
+## Build (Construção)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Execute `ng build` para compilar o projeto. Os artefatos da build serão armazenados no diretório `dist/`.
 
-## Running unit tests
+## Executando Testes Unitários
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Execute `ng test` para rodar os testes unitários utilizando o [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Executando Testes de Ponta a Ponta
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Este projeto atualmente não possui configuração para testes de ponta a ponta. Caso necessário, adicione um pacote que implemente essa funcionalidade.
 
-## Further help
+## Dependências
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Dependências de Produção
+- **@angular/animations**: ^16.2.0
+- **@angular/cdk**: ^16.2.0
+- **@angular/common**: ^16.2.0
+- **@angular/compiler**: ^16.2.0
+- **@angular/core**: ^16.2.0
+- **@angular/forms**: ^16.2.0
+- **@angular/material**: ^16.2.0
+- **@angular/platform-browser**: ^16.2.0
+- **@angular/platform-browser-dynamic**: ^16.2.0
+- **@angular/router**: ^16.2.0
+- **rxjs**: ~7.8.0
+- **tslib**: ^2.3.0
+- **zone.js**: ~0.13.0
+
+### Dependências de Desenvolvimento
+- **@angular-devkit/build-angular**: ^16.2.16
+- **@angular/cli**: ^16.2.16
+- **@angular/compiler-cli**: ^16.2.0
+- **@types/jasmine**: ~4.3.0
+- **jasmine-core**: ~4.6.0
+- **karma**: ~6.4.0
+- **karma-chrome-launcher**: ~3.2.0
+- **karma-coverage**: ~2.2.0
+- **karma-jasmine**: ~5.1.0
+- **karma-jasmine-html-reporter**: ~2.1.0
+- **typescript**: ~5.1.3
+
+## Ajuda Adicional
+
+Para obter mais ajuda sobre o Angular CLI, use `ng help` ou acesse a [Documentação Oficial do Angular CLI](https://angular.io/cli).
